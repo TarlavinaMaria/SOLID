@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorContrac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Метод onCreate вызывается при создании активити
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorContrac
     }
 
     private void initViews() {
+        // Метод initViews инициализирует элементы интерфейса
         etNum1 = findViewById(R.id.etNum1);
         etNum2 = findViewById(R.id.etNum2);
         tvResult = findViewById(R.id.tvResult);
@@ -42,11 +44,13 @@ public class MainActivity extends AppCompatActivity implements CalculatorContrac
     }
 
     private void setupPresenter() {
+        // Метод setupPresenter создает презентер и связывает его с активити
         Calculator calculator = new Calculator();
         presenter = new CalculatorPresenter(this, calculator);
     }
 
     private void setupListeners() {
+        // Метод setupListeners устанавливает слушатели нажатия на кнопки
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,16 +89,19 @@ public class MainActivity extends AppCompatActivity implements CalculatorContrac
 
     @Override
     public void showResult(String result) {
-        tvResult.setText("Result: " + result);
+        // Метод showResult обновляет текстовое поле с результатом
+        tvResult.setText("Результат: " + result);
     }
 
     @Override
     public void showError(String message) {
-        tvResult.setText("Error: " + message);
+        // Метод showError обновляет текстовое поле с ошибкой
+        tvResult.setText("Ошибка: " + message);
     }
 
     @Override
     public void clearInputs() {
+        // Метод clearInputs очищает текстовые поля
         etNum1.setText("");
         etNum2.setText("");
     }

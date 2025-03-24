@@ -1,8 +1,9 @@
 package com.example.solid;
 
+// Класс CalculatorPresenter реализует интерфейс CalculatorContract.Presenter
 public class CalculatorPresenter implements CalculatorContract.Presenter {
-    private CalculatorContract.View view;
-    private Calculator calculator;
+    CalculatorContract.View view;
+    Calculator calculator;
 
     public CalculatorPresenter(CalculatorContract.View view, Calculator calculator) {
         this.view = view;
@@ -43,11 +44,11 @@ public class CalculatorPresenter implements CalculatorContract.Presenter {
             double result = calculator.calculate(num1, num2, operation);
             view.showResult(String.valueOf(result));
         } catch (NumberFormatException e) {
-            view.showError("Please enter valid numbers");
+            view.showError("Пожалуйста, введите числа");
         } catch (ArithmeticException e) {
             view.showError(e.getMessage());
         } catch (Exception e) {
-            view.showError("An error occurred");
+            view.showError("Произошла ошибка");
         }
     }
 }
